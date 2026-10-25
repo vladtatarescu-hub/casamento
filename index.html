@@ -337,8 +337,8 @@ footer p { margin: .3rem 0 0; font-family: var(--display); font-size: .8rem; let
   try { lang = localStorage.getItem("lv-lang") || (navigator.language || "").slice(0, 2) === "ro" && "ro" || "pt"; } catch (e) {}
   if (!T[lang]) lang = "pt";
 
-  // RSVP form on Tally; the language goes along as a hidden field.
-  var TALLY = "https://tally.so/r/VppEMg";
+  // RSVP forms on Tally, one per language; the language also goes along as a hidden field.
+  var TALLY = { pt: "https://tally.so/r/VppEMg", ro: "https://tally.so/r/4aaXY5" };
 
   function render() {
     var t = T[lang];
@@ -350,7 +350,7 @@ footer p { margin: .3rem 0 0; font-family: var(--display); font-size: .8rem; let
     document.getElementById("lang-pt").setAttribute("aria-pressed", lang === "pt");
     document.getElementById("lang-ro").setAttribute("aria-pressed", lang === "ro");
     var q = new URLSearchParams({ lang: lang.toUpperCase() });
-    document.getElementById("rsvpBtn").href = TALLY + "?" + q.toString();
+    document.getElementById("rsvpBtn").href = TALLY[lang] + "?" + q.toString();
   }
 
   function setLang(l) { lang = l; try { localStorage.setItem("lv-lang", l); } catch (e) {} render(); }
