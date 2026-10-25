@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.png">
+<meta property="og:title" content="Lara &amp; Vlad · 12.09.2027">
+<title>Lara &amp; Vlad 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap">
+<style>
+/* Layout: one long invitation, centred like the printed card; blurred floral hero, quiet paper sections, one serenity-blue band for the RSVP. Single light theme on purpose, to match the print. */
+:root {
+  --paper: #F6F4F0;
+  --paper-2: #FBFAF7;
+  --serenity: #B2CAE7;
+  --serenity-ink: #3F5D86;
+  --ink: #5B5A36;
+  --ink-soft: #7A7656;
+  --gold: #A8894A;
+  --peach: #F6C9A8;
+  --rose: #E7A3B3;
+  --orange: #EE9B5E;
+  --line: rgba(168, 137, 74, .45);
+  --display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --body: "Cormorant Garamond", Garamond, Georgia, serif;
+  --script: "Pinyon Script", "Snell Roundhand", cursive;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; -webkit-text-size-adjust: 100%; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.wrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--serenity-ink); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--serenity-ink); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: .28em; text-align: center; }
+.eyebrow { font-family: var(--display); font-size: .82rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft); text-align: center; }
+.script { font-family: var(--script); font-size: 2rem; color: var(--gold); line-height: 1.2; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(246, 244, 240, .88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .6rem; }
+.mono { font-family: var(--display); letter-spacing: .2em; font-size: 1rem; white-space: nowrap; }
+.nav { display: flex; gap: 1.2rem; flex-wrap: wrap; font-family: var(--display); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; }
+.nav a { color: var(--ink); text-decoration: none; }
+.nav a:hover { color: var(--serenity-ink); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 99px; overflow: hidden; }
+.lang button { font-family: var(--display); font-size: .72rem; letter-spacing: .15em; background: none; border: 0; padding: .3rem .7rem; color: var(--ink); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--serenity); color: var(--ink); }
+@media (max-width: 760px) { .nav { display: none; } }
+
+/* hero: the blurred ranunculus of the printed card */
+.hero { position: relative; overflow: hidden; text-align: center; background: #F8E6D6; }
+.hero::before {
+  content: ""; position: absolute; inset: -20%;
+  background:
+    radial-gradient(28% 22% at 42% 8%, var(--rose), transparent 70%),
+    radial-gradient(26% 30% at 88% 34%, var(--orange), transparent 70%),
+    radial-gradient(40% 40% at 10% 60%, var(--peach), transparent 75%),
+    radial-gradient(35% 30% at 70% 95%, #F9D9B3, transparent 75%),
+    radial-gradient(30% 30% at 20% 100%, #F5D0D4, transparent 75%);
+  filter: blur(40px);
+}
+.hero .wrap { position: relative; padding-block: clamp(4rem, 12vw, 8rem); display: grid; gap: 1.6rem; justify-items: center; }
+.names { font-size: clamp(2.8rem, 10vw, 5rem); letter-spacing: .22em; line-height: 1.1; color: var(--ink); }
+.names .amp { display: block; font-size: .55em; letter-spacing: 0; margin-block: .2rem; }
+.date {
+  display: grid; grid-template-columns: auto auto auto; align-items: center; gap: 1.2rem;
+  font-family: var(--display); color: var(--gold);
+}
+.date .side { border-block: 1px solid var(--gold); padding-block: .3rem; font-size: clamp(.8rem, 2.6vw, 1rem); letter-spacing: .1em; min-width: 6.5rem; }
+.date .day { font-size: clamp(3rem, 9vw, 4.5rem); line-height: 1; }
+.date .month { grid-column: 1 / -1; font-size: 1rem; letter-spacing: .12em; margin-top: -.6rem; }
+.countdown { display: flex; gap: clamp(1rem, 4vw, 2.5rem); justify-content: center; font-variant-numeric: tabular-nums; }
+.countdown div { display: grid; }
+.countdown b { font-family: var(--display); font-weight: 400; font-size: 1.8rem; }
+.countdown span { font-size: .85rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
+.btn {
+  display: inline-block; font-family: var(--display); font-size: .82rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--ink); background: var(--serenity); border: 1px solid var(--serenity); padding: .85rem 1.8rem; text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--paper-2); }
+
+/* sections */
+section.block { padding-block: clamp(3.5rem, 9vw, 6rem); }
+section.block + section.block { border-top: 1px solid var(--line); }
+.head { display: grid; gap: .6rem; justify-items: center; margin-bottom: 2.5rem; }
+.head p { margin: 0; max-width: 34rem; text-align: center; color: var(--ink-soft); }
+.rule { width: 4rem; height: 1px; background: var(--gold); }
+
+.programme { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 2rem; }
+.event { display: grid; gap: .5rem; text-align: center; padding: 2rem 1.5rem; background: var(--paper-2); border: 1px solid var(--line); min-width: 0; }
+.event .time { font-family: var(--display); font-size: 2.2rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.event h3 { font-size: 1.05rem; letter-spacing: .22em; }
+.event p { margin: 0; }
+.event .where { font-style: italic; }
+.event a { font-family: var(--display); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; }
+.note { text-align: center; margin: 2rem auto 0; max-width: 36rem; color: var(--ink-soft); }
+
+.story { max-width: 38rem; margin: 0 auto; text-align: center; }
+.story .tbd { border: 1px dashed var(--line); padding: 1.2rem; color: var(--ink-soft); font-style: italic; }
+
+.travel { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2.5rem; }
+.travel div { min-width: 0; }
+.travel h3 { font-size: .95rem; letter-spacing: .2em; margin-bottom: .5rem; color: var(--serenity-ink); }
+.travel p { margin: 0; }
+
+/* RSVP band */
+.rsvp { background: var(--serenity); }
+.rsvp .wrap { padding-block: clamp(3.5rem, 9vw, 6rem); display: grid; gap: 1.4rem; justify-items: center; text-align: center; }
+.rsvp h2 { color: var(--ink); }
+.rsvp .deadline { font-family: var(--display); letter-spacing: .15em; font-size: .9rem; }
+.rsvp .btn { background: var(--ink); color: var(--paper-2); border-color: var(--ink); }
+.rsvp .btn:hover { background: var(--paper-2); color: var(--ink); }
+.rsvp small { color: var(--ink); opacity: .8; max-width: 30rem; }
+
+.faq { max-width: 42rem; margin: 0 auto; display: grid; gap: .8rem; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: .6rem; }
+.faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.faq summary::after { content: "+"; font-family: var(--display); color: var(--gold); }
+.faq details[open] summary::after { content: "–"; }
+.faq p { margin: .5rem 0 0; color: var(--ink-soft); }
+
+footer { text-align: center; padding-block: 3rem; border-top: 1px solid var(--line); }
+footer .script { font-size: 2.4rem; }
+footer p { margin: .3rem 0 0; font-family: var(--display); font-size: .8rem; letter-spacing: .25em; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="mono">L &amp; V</span>
+    <nav class="nav" aria-label="Secções">
+      <a href="#dia" data-t="navDay">O dia</a>
+      <a href="#historia" data-t="navStory">A nossa história</a>
+      <a href="#viagem" data-t="navTravel">Viagem</a>
+      <a href="#rsvp" data-t="navRsvp">Confirmar</a>
+      <a href="#faq" data-t="navFaq">Perguntas</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Língua">
+      <button type="button" id="lang-pt" aria-pressed="true">PT</button>
+      <button type="button" id="lang-ro" aria-pressed="false">RO</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow" data-t="kindly">Temos o prazer de vos convidar<br>para o casamento de</p>
+      <h1 class="names">Lara<span class="amp">&amp;</span>Vlad</h1>
+      <div class="date" aria-label="Domingo, 12 de setembro de 2027, às 12h30">
+        <span class="side" data-t="sunday">Domingo</span>
+        <span class="day">12</span>
+        <span class="side" data-t="at">Às 12:30h</span>
+        <span class="month" data-t="month">Setembro 2027</span>
+      </div>
+      <div class="countdown" aria-live="off">
+        <div><b id="cd-d">–</b><span data-t="days">dias</span></div>
+        <div><b id="cd-h">–</b><span data-t="hours">horas</span></div>
+        <div><b id="cd-m">–</b><span data-t="minutes">minutos</span></div>
+      </div>
+      <a class="btn" href="#rsvp" data-t="cta">Confirmar presença</a>
+    </div>
+  </section>
+
+  <section class="block" id="dia">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" data-t="dayEyebrow">12 · 09 · 2027</p>
+        <h2 data-t="dayTitle">O dia</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="programme">
+        <article class="event">
+          <span class="time">12:30</span>
+          <h3 data-t="ceremony">Cerimónia</h3>
+          <p class="where">Igreja de São Pedro, Palmela</p>
+          <p data-t="ceremonyNote">Com o Coro Caminhada.</p>
+          <a href="https://maps.google.com/?q=Igreja+de+S%C3%A3o+Pedro+Palmela" target="_blank" rel="noopener" data-t="map">Ver no mapa</a>
+        </article>
+        <article class="event">
+          <span class="time" data-t="after">A seguir</span>
+          <h3 data-t="reception">Copo-d'água</h3>
+          <p class="where">Quinta Acordeon 2, Barreiro</p>
+          <p data-t="receptionNote">Almoço, jantar e festa até ao fim da noite.</p>
+          <a href="https://maps.google.com/?q=Quinta+Acordeon+2+Barreiro" target="_blank" rel="noopener" data-t="map">Ver no mapa</a>
+        </article>
+      </div>
+      <p class="note" data-t="dayNote">A igreja e a quinta ficam a cerca de 25 minutos de carro. Vamos juntar tradições portuguesas e moldavas ao longo do dia.</p>
+    </div>
+  </section>
+
+  <section class="block" id="historia">
+    <div class="wrap">
+      <div class="head">
+        <p class="script">Lara &amp; Vlad</p>
+        <h2 data-t="storyTitle">A nossa história</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="story">
+        <p class="tbd" data-t="storyTbd">Texto e fotografias a acrescentar pelos noivos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="viagem">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-t="travelTitle">Viagem e estadia</h2>
+        <div class="rule"></div>
+        <p data-t="travelLead">Para quem vem de longe, sobretudo da Moldávia e da Roménia.</p>
+      </div>
+      <div class="travel">
+        <div>
+          <h3 data-t="flyTitle">Chegar</h3>
+          <p data-t="flyText">O aeroporto mais próximo é o de Lisboa (LIS). De lá até Palmela são cerca de 40 km, pela Ponte Vasco da Gama.</p>
+        </div>
+        <div>
+          <h3 data-t="stayTitle">Onde ficar</h3>
+          <p data-t="stayText">Sugestões de alojamento em Palmela, Setúbal e no Barreiro em breve. Se precisarem de ajuda, falem connosco.</p>
+        </div>
+        <div>
+          <h3 data-t="moveTitle">Deslocações no dia</h3>
+          <p data-t="moveText">Estamos a ver se faz sentido um autocarro entre a igreja e a quinta. Daremos notícias aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div class="wrap">
+      <p class="eyebrow" data-t="rsvpEyebrow">RSVP</p>
+      <h2 data-t="rsvpTitle">Confirmar presença</h2>
+      <p class="deadline" data-t="deadline">Pedimos resposta até 31 de julho de 2027</p>
+      <a class="btn" id="rsvpBtn" href="#rsvp" data-t="rsvpBtn">Responder ao convite</a>
+      <small data-t="rsvpSmall">Perguntamos o vosso nome, acompanhante, filhos e restrições alimentares. Demora um minuto.</small>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-t="faqTitle">Perguntas</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="faq">
+        <details><summary data-t="q1">Posso levar acompanhante?</summary><p data-t="a1">Sim, se o convite for para os dois. Indiquem o nome do acompanhante no formulário.</p></details>
+        <details><summary data-t="q2">As crianças são bem-vindas?</summary><p data-t="a2">Sim. Indiquem no formulário quantas crianças vêm, para prepararmos menus e cadeiras.</p></details>
+        <details><summary data-t="q3">Tenho uma alergia ou restrição alimentar.</summary><p data-t="a3">Indiquem-na no formulário, com o nome de quem a tem. Passamos a informação à cozinha.</p></details>
+        <details><summary data-t="q4">Até quando posso responder?</summary><p data-t="a4">Até 31 de julho de 2027. Se os vossos planos mudarem, podem voltar a responder pelo site.</p></details>
+        <details><summary data-t="q5">Há estacionamento?</summary><p data-t="a5">Sim, junto à igreja e na quinta.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="script">Lara &amp; Vlad</p>
+    <p>12 · 09 · 2027 · PALMELA</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    pt: {
+      navDay: "O dia", navStory: "A nossa história", navTravel: "Viagem", navRsvp: "Confirmar", navFaq: "Perguntas",
+      kindly: "Temos o prazer de vos convidar<br>para o casamento de",
+      sunday: "Domingo", at: "Às 12:30h", month: "Setembro 2027",
+      days: "dias", hours: "horas", minutes: "minutos", cta: "Confirmar presença",
+      dayEyebrow: "12 · 09 · 2027", dayTitle: "O dia", ceremony: "Cerimónia", ceremonyNote: "Com o Coro Caminhada.",
+      map: "Ver no mapa", after: "A seguir", reception: "Copo-d'água", receptionNote: "Almoço, jantar e festa até ao fim da noite.",
+      dayNote: "A igreja e a quinta ficam a cerca de 25 minutos de carro. Vamos juntar tradições portuguesas e moldavas ao longo do dia.",
+      storyTitle: "A nossa história", storyTbd: "Texto e fotografias a acrescentar pelos noivos.",
+      travelTitle: "Viagem e estadia", travelLead: "Para quem vem de longe, sobretudo da Moldávia e da Roménia.",
+      flyTitle: "Chegar", flyText: "O aeroporto mais próximo é o de Lisboa (LIS). De lá até Palmela são cerca de 40 km, pela Ponte Vasco da Gama.",
+      stayTitle: "Onde ficar", stayText: "Sugestões de alojamento em Palmela, Setúbal e no Barreiro em breve. Se precisarem de ajuda, falem connosco.",
+      moveTitle: "Deslocações no dia", moveText: "Estamos a ver se faz sentido um autocarro entre a igreja e a quinta. Daremos notícias aqui.",
+      rsvpEyebrow: "RSVP", rsvpTitle: "Confirmar presença", hello: "Olá,",
+      deadline: "Pedimos resposta até 31 de julho de 2027", rsvpBtn: "Responder ao convite",
+      rsvpSmall: "Perguntamos o vosso nome, acompanhante, filhos e restrições alimentares. Demora um minuto.",
+      faqTitle: "Perguntas",
+      q1: "Posso levar acompanhante?", a1: "Sim, se o convite for para os dois. Indiquem o nome do acompanhante no formulário.",
+      q2: "As crianças são bem-vindas?", a2: "Sim. Indiquem no formulário quantas crianças vêm, para prepararmos menus e cadeiras.",
+      q3: "Tenho uma alergia ou restrição alimentar.", a3: "Indiquem-na no formulário, com o nome de quem a tem. Passamos a informação à cozinha.",
+      q4: "Até quando posso responder?", a4: "Até 31 de julho de 2027. Se os vossos planos mudarem, podem voltar a responder pelo site.",
+      q5: "Há estacionamento?", a5: "Sim, junto à igreja e na quinta."
+    },
+    ro: {
+      navDay: "Ziua", navStory: "Povestea noastră", navTravel: "Călătorie", navRsvp: "Confirmare", navFaq: "Întrebări",
+      kindly: "Avem bucuria să vă invităm<br>la nunta lui",
+      sunday: "Duminică", at: "Ora 12:30", month: "Septembrie 2027",
+      days: "zile", hours: "ore", minutes: "minute", cta: "Confirmați prezența",
+      dayEyebrow: "12 · 09 · 2027", dayTitle: "Ziua", ceremony: "Cununia religioasă", ceremonyNote: "Cu Corul Caminhada.",
+      map: "Vezi pe hartă", after: "Apoi", reception: "Petrecerea", receptionNote: "Prânz, cină și petrecere până seara târziu.",
+      dayNote: "Biserica și Quinta se află la aproximativ 25 de minute cu mașina. Vom îmbina tradiții portugheze și moldovenești pe parcursul zilei.",
+      storyTitle: "Povestea noastră", storyTbd: "Text și fotografii de adăugat de miri.",
+      travelTitle: "Călătorie și cazare", travelLead: "Pentru cei care vin de departe, mai ales din Moldova și România.",
+      flyTitle: "Sosirea", flyText: "Cel mai apropiat aeroport este Lisabona (LIS). De acolo până la Palmela sunt aproximativ 40 km, peste Podul Vasco da Gama.",
+      stayTitle: "Cazare", stayText: "În curând vom pune sugestii de cazare în Palmela, Setúbal și Barreiro. Dacă aveți nevoie de ajutor, scrieți-ne.",
+      moveTitle: "Transport în ziua nunții", moveText: "Ne gândim la un autobuz între biserică și Quinta. Vă vom anunța aici.",
+      rsvpEyebrow: "RSVP", rsvpTitle: "Confirmați prezența", hello: "Bună,",
+      deadline: "Vă rugăm să răspundeți până la 31 iulie 2027", rsvpBtn: "Răspundeți la invitație",
+      rsvpSmall: "Vă întrebăm numele, însoțitorul, copiii și restricțiile alimentare. Durează un minut.",
+      faqTitle: "Întrebări",
+      q1: "Pot veni cu un însoțitor?", a1: "Da, dacă invitația este pentru doi. Scrieți numele însoțitorului în formular.",
+      q2: "Sunt copiii bineveniți?", a2: "Da. Indicați în formular câți copii vin, ca să pregătim meniuri și scaune.",
+      q3: "Am o alergie sau o restricție alimentară.", a3: "Menționați-o în formular, cu numele persoanei. Transmitem informația bucătăriei.",
+      q4: "Până când pot răspunde?", a4: "Până la 31 iulie 2027. Dacă planurile se schimbă, puteți răspunde din nou pe site.",
+      q5: "Există parcare?", a5: "Da, lângă biserică și la Quinta."
+    }
+  };
+
+  var lang = "pt";
+  try { lang = localStorage.getItem("lv-lang") || (navigator.language || "").slice(0, 2) === "ro" && "ro" || "pt"; } catch (e) {}
+  if (!T[lang]) lang = "pt";
+
+  // RSVP form on Tally; the language goes along as a hidden field.
+  var TALLY = "https://tally.so/r/VppEMg";
+
+  function render() {
+    var t = T[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(function (el) {
+      var v = t[el.getAttribute("data-t")];
+      if (typeof v === "string") el.innerHTML = v;
+    });
+    document.getElementById("lang-pt").setAttribute("aria-pressed", lang === "pt");
+    document.getElementById("lang-ro").setAttribute("aria-pressed", lang === "ro");
+    var q = new URLSearchParams({ lang: lang.toUpperCase() });
+    document.getElementById("rsvpBtn").href = TALLY + "?" + q.toString();
+  }
+
+  function setLang(l) { lang = l; try { localStorage.setItem("lv-lang", l); } catch (e) {} render(); }
+  document.getElementById("lang-pt").addEventListener("click", function () { setLang("pt"); });
+  document.getElementById("lang-ro").addEventListener("click", function () { setLang("ro"); });
+
+  // Countdown to 12 Sept 2027, 12:30 Lisbon (WEST, UTC+1).
+  var target = Date.parse("2027-09-12T12:30:00+01:00");
+  function tick() {
+    var ms = Math.max(0, target - Date.now());
+    document.getElementById("cd-d").textContent = Math.floor(ms / 864e5);
+    document.getElementById("cd-h").textContent = Math.floor(ms / 36e5) % 24;
+    document.getElementById("cd-m").textContent = Math.floor(ms / 6e4) % 60;
+  }
+  tick(); setInterval(tick, 30000);
+  render();
+})();
+</script>
+</body>
+</html>
